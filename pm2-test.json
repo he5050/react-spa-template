@@ -1,0 +1,21 @@
+{
+  "apps": [
+    {
+      "name": "spa-template",
+      "script": "./pm2.js",
+      "max_memory_restart": "600M",
+      "min_uptime": "180s",
+      "env": {
+        "NODE_ENV": "test"
+      },
+      "ignore_watch": [
+        "node_modules"
+      ],
+      "exec_mode": "cluster", // "fork cluster"
+      "instances": 4,
+      "error_file": "./logs/err.log",
+      "out_file": "./logs/out.log",
+      "watch": false
+    }
+  ]
+}

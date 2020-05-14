@@ -1,0 +1,167 @@
+{
+  "name": "he_spa_template",
+  "version": "1.0.0",
+  "description": "react spa 模板",
+  "main": "index.js",
+  "scripts": {
+    "dll": "cross-env NODE_ENV=production webpack --config ./build/webpack.dll.js --colors",
+    "dev": "rm -rf .cache && nodemon",
+    "build": "webpack -p --config ./build/webpack.prod.config.js",
+    "build:test": "cross-env NODE_ENV=test webpack -p --config ./build/webpack.prod.config.js",
+    "test": "cross-env NODE_ENV=test babel-node ./server/prod.js",
+    "prod": "cross-env NODE_ENV=production babel-node ./server/prod.js",
+    "start": "pm2 start pm2.json",
+    "restart": "pm2 restart  pm2.json",
+    "reload": "pm2 reload  pm2.json",
+    "pm2": "pm2 start ./pm2.js -i 4 --name spa_template",
+    "stop": "pm2 stop ./pm2.json",
+    "precommit": "npm run lint && lint-staged",
+    "lint": "eslint --fix --ext .jsx,.js  ./app && npm run prettier && git add .",
+    "prettier": "prettier --write {app,config}/**/*.{js,jsx,css,less,scss}",
+    "release:patch": "standard-version -a --no-verify --release-as patch && npm run push",
+    "release:minor": "standard-version -a --no-verify --release-as minor && npm run push",
+    "release:major": "standard-version -a --no-verify --release-as major && npm run push",
+    "release:beta": "standard-version -a --no-verify --prerelease beta --release-as major && npm run push",
+    "push": "git push --follow-tags origin master",
+    "commit": "git-cz",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "version-first": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "author": "he5050",
+  "license": "ISC",
+  "email": "476532333@qq.com",
+  "private": true,
+  "lint-staged": {
+    "{app,config}/**/*.{js,jsx,css,less,scss}": [
+      "npm run lint",
+      "git add ."
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run precommit",
+      "pre-add": "npm run precommit"
+    }
+  },
+  "gitHooks": {
+    "commit-msg": "node scripts/verify-commit-msg.js"
+  },
+  "standard-version": {
+    "skip": {
+      "changelog": false
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/he5050/spa-template.git"
+  },
+  "installConfig": {
+    "pnp": false
+  },
+  "dependencies": {
+    "@rematch/core": "^1.4.0",
+    "antd": "^4.2.2",
+    "axios": "^0.19.2",
+    "compression": "^1.7.4",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "ejs": "^3.1.2",
+    "history": "^4.10.1",
+    "lodash": "^4.17.15",
+    "moment": "^2.25.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/runtime": "^7.9.6",
+    "antd-dayjs-webpack-plugin": "^1.0.0",
+    "autoprefixer": "^9.7.6",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.0",
+    "body-parser": "^1.19.0",
+    "brotli-webpack-plugin": "^1.1.0",
+    "cache-loader": "^4.1.0",
+    "case-sensitive-paths-webpack-plugin": "^2.3.0",
+    "chalk": "^4.0.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "colors": "^1.4.0",
+    "commitizen": "^4.1.2",
+    "compression-webpack-plugin": "^4.0.0",
+    "css-hot-loader": "^1.4.4",
+    "css-loader": "^3.5.3",
+    "cz-conventional-changelog": "^3.2.0",
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
+    "eslint": "^7.0.0",
+    "eslint-config-alloy": "^3.7.2",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.2",
+    "express": "^4.17.1",
+    "favicons-webpack-plugin": "3.0.1",
+    "file-loader": "^6.0.0",
+    "happypack": "^5.0.1",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
+    "less": "^3.11.1",
+    "less-loader": "^6.1.0",
+    "lint-staged": "^10.2.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "mockjs": "^1.1.0",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "preload-webpack-plugin": "^2.3.0",
+    "prettier": "2.0.5",
+    "sass-loader": "^8.0.2",
+    "size-plugin": "^2.0.1",
+    "standard-version": "^8.0.0",
+    "style-loader": "^1.2.1",
+    "sw-precache-webpack-plugin": "^1.0.0",
+    "terser-webpack-plugin": "^3.0.1",
+    "thread-loader": "^2.1.3",
+    "url-loader": "^4.1.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.7.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpackbar": "^4.0.0",
+    "workbox-webpack-plugin": "^5.1.3",
+    "xml-loader": "^1.2.1"
+  },
+  "browserslist": [
+    "iOS >= 8",
+    "last 1 versions",
+    "> 2%",
+    "not dead",
+    "not op_mini all"
+  ]
+}

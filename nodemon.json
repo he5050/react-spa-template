@@ -1,0 +1,17 @@
+{
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "watch": [
+    "config",
+    "server",
+    "views",
+    "build"
+  ],
+  "ignore_watch": [
+    "app"
+  ],
+  "verbose": false,
+  "ext": ".js,.jsx",
+  "exec": "cross-env NODE_ENV=development babel-node server/dev.js --max_old_space_size=4096"
+}

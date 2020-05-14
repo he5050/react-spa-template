@@ -1,0 +1,8 @@
+# Browsers that we support
+
+last 2 Chrome versions,
+last 2 Firefox versions,
+Safari >= 9,
+IE >= 10,
+Android >= 4.4,
+iOS >= 9

@@ -1,6 +1,6 @@
 {
   "name": "spa_template",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react spa 模板",
   "main": "index.js",
   "scripts": {

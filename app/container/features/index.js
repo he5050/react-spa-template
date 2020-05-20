@@ -1,8 +1,9 @@
 /** 构建与特性页 **/
 
 /** 所需的各种插件 **/
-import React from "react";
 import { connect } from "react-redux";
+import React from "react";
+
 /** 所需的所有资源 **/
 import "./index.less";
 

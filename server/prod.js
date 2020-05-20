@@ -1,8 +1,10 @@
 import compression from "compression";
 import express from "express";
 import path from "path";
+
 import conf from "../config/env";
 import printMiddleware from "./middleware/print";
+
 printMiddleware("服务正在启动", "yellow");
 const loader = (path, app) => {
     require(path).default(app);

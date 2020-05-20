@@ -3,8 +3,9 @@
 /** 所需的各种插件 **/
 // antd的多语言
 import { ConfigProvider } from "antd";
-import zhCN from "antd/lib/locale-provider/zh_CN";
 import { createBrowserHistory as createHistory } from "history"; // URL模式的history
+import zhCN from "antd/lib/locale-provider/zh_CN";
+
 // import { createHashHistory as createHistory } from "history"; // 锚点模式的history
 import React, { useEffect } from "react";
 import Loadable from "react-loadable"; // 用于代码分割时动态加载模块

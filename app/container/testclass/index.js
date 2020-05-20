@@ -3,16 +3,18 @@
 /** 所需的各种插件 **/
 /** 所需的所有资源 **/
 import { Button, message, Modal } from "antd";
-import P from "prop-types";
-import React from "react";
 import { connect } from "react-redux";
 import { Link, Route, Switch } from "react-router-dom";
-import Mp3 from "../../assets/starSky.mp3";
-import ImgTest from "../../assets/test.jpg";
+import P from "prop-types";
+import React from "react";
+
 import Page1 from "./container/page1"; // 子页面1
 import Page2 from "./container/page2"; // 子页面2
 import Page3 from "./container/page3"; // 子页面3
+
 import "./index.less";
+import ImgTest from "../../assets/test.jpg";
+import Mp3 from "../../assets/starSky.mp3";
 
 /** 组件 **/
 class TestClassPageContainer extends React.Component {

@@ -4,6 +4,7 @@
  * 此model中包含了用于src/container/test模块的数据和方法
  * **/
 import { message } from "antd";
+
 import Server from "../util/server"; // 自己封装的异步请求方法
 
 export default {

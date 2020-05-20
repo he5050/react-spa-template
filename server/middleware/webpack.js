@@ -2,8 +2,9 @@ import path from "path";
 import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
-import webpackDev from "../../build/webpack.dev.config.js";
+
 import printMiddleware from "./print";
+import webpackDev from "../../build/webpack.dev.config.js";
 
 const wpc = app => {
     printMiddleware("加载中间件 webpack中间件");

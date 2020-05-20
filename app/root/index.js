@@ -5,10 +5,11 @@
  * */
 
 /** 所需的各种插件 **/
-import React from "react";
 import { Provider } from "react-redux";
-import store from "../store";
+import React from "react";
+
 import Routers from "../container/routers";
+import store from "../store";
 
 export default function RootContainer() {
     return (

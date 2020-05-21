@@ -5,7 +5,7 @@
  * **/
 import { message } from "antd";
 
-import Server from "../util/server"; // 自己封装的异步请求方法
+import Ajax from "../util/fetch"; // 自己封装的异步请求方法
 
 export default {
     /** store数据 **/
@@ -32,7 +32,7 @@ export default {
         // 测试 - 异步请求
         async serverFetch(params = {}) {
             try {
-                const res = await Server.newServer("url.ajax", params, "post");
+                const res = await Ajax.get("url.ajax", params);
                 if (res && res.data.status === 200) {
                     dispatch({ type: "test/setFetchValue", payload: res.data.data }); // dispatch是全局根dispatch,也能这么用
                 }

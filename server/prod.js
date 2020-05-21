@@ -2,7 +2,7 @@ import compression from "compression";
 import express from "express";
 import path from "path";
 
-import conf from "../config/env";
+import conf from "../config/conf";
 import printMiddleware from "./middleware/print";
 
 printMiddleware("服务正在启动", "yellow");
@@ -23,9 +23,9 @@ app.get("*", function (req, res) {
 });
 
 /** 启动服务 **/
-app.listen(conf.listen_port, () => {
+app.listen(conf.listenPort, () => {
     printMiddleware(
-        `express服务已经启动,耗时 ${Date.now() - bundleStart}ms!, http://127.0.0.1:${conf.listen_port}`,
+        `express服务已经启动,耗时 ${Date.now() - bundleStart}ms!, http://127.0.0.1:${conf.listenPort}`,
         "debug"
     );
 });

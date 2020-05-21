@@ -25,10 +25,6 @@ export default function Menu() {
                 }}>
                 测试(class)
             </Link>
-            |
-            <a href="https://github.com/javaLuo/react-luo" target="_blank" rel="noopener noreferrer">
-                GitHub
-            </a>
         </div>
     );
 }
